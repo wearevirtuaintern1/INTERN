@@ -1,6 +1,10 @@
-Docker environment for a Symfony4 project
+Virtua Internship 2019
 ==================================
+This project is created during Virtua Backend Internship 2019
 
+
+Docker environment for a Symfony4 project
+--------------------------
 # Add to your project
 
 Move the `docker-compose.yml` and the folder named `phpdocker` containing nginx and php-fpm config for it to the root of your Symfony4 project.
