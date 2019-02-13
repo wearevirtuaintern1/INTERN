@@ -1,6 +1,7 @@
 Docker environment for a Symfony4 project
 ==================================
-
+# Twórcy 
+Patrycja Wróbel intern1@wearevirtua.com
 # Add to your project
 
 Move the `docker-compose.yml` and the folder named `phpdocker` containing nginx and php-fpm config for it to the root of your Symfony4 project.
