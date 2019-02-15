@@ -27,12 +27,12 @@ class ProductCategory
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime", length=255)
      */
     private $date_of_creation;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime", length=255)
      */
     private $date_of_last_modification;
 
@@ -65,19 +65,19 @@ class ProductCategory
         return $this;
     }
 
-    public function getDateOfCreation(): ?string
+    public function getDateOfCreation(): \DateTimeInterface
     {
         return $this->date_of_creation;
     }
 
-    public function setDateOfCreation(string $date_of_creation): self
+    public function setDateOfCreation( $date_of_creation): self
     {
         $this->date_of_creation = $date_of_creation;
 
         return $this;
     }
 
-    public function getDateOfLastModification(): ?string
+    public function getDateOfLastModification(): \DateTimeInterface
     {
         return $this->date_of_last_modification;
     }
