@@ -82,7 +82,7 @@ class ProductCategory
         return $this->date_of_last_modification;
     }
 
-    public function setDateOfLastModification(string $date_of_last_modification): self
+    public function setDateOfLastModification(\DateTimeInterface $date_of_last_modification): self
     {
         $this->date_of_last_modification = $date_of_last_modification;
 
