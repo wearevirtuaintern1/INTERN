@@ -18,5 +18,3 @@ class ProductCategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ProductCategory::class);
     }
-
-}
