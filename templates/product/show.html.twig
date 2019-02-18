@@ -21,11 +21,11 @@
             </tr>
             <tr>
                 <th>Date_of_creation</th>
-                <td>{{ product.dateOfCreation }}</td>
+                <td>{{ product.dateOfCreation|date("m/d/Y") }}</td>
             </tr>
             <tr>
                 <th>Date_of_last_modification</th>
-                <td>{{ product.dateOfLastModification }}</td>
+                <td>{{ product.dateOfLastModification|date("m/d/Y") }}</td>
             </tr>
         </tbody>
     </table>
