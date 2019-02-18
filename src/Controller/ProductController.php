@@ -109,7 +109,7 @@ class ProductController extends AbstractController
             'notice',
             'Deleted successfully!'
         );
-        
+
         return $this->redirectToRoute('product_index');
     }
 }
