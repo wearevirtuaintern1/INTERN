@@ -18,11 +18,11 @@ class ProductCategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ProductCategory::class);
     }
-<<<<<<< HEAD
 
-    /*
-public function findByExampleField($value)
-{
+}
+
+    /*public function findByExampleField($value)
+    {
     return $this->createQueryBuilder('p')
         ->andWhere('p.exampleField = :val')
         ->setParameter('val', $value)
@@ -32,6 +32,7 @@ public function findByExampleField($value)
         ->getResult()
     ;
 }
+
 */
 
     /*
@@ -44,9 +45,8 @@ public function findByExampleField($value)
             ->getOneOrNullResult()
         ;
     }
-    */
+
 
 
 }
-=======
->>>>>>> 0fcc637af2e48fa30ee12179e0df934cf91204ba
+}
