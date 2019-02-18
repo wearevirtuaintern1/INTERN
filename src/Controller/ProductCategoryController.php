@@ -39,6 +39,10 @@ class ProductCategoryController extends AbstractController
             $entityManager->persist($productCategory);
             $entityManager->flush();
 
+            $this->addFlash(
+                'notice',
+                        'Your changes were saved!'
+            );
             return $this->redirectToRoute('product_category_index');
         }
 
@@ -69,6 +73,11 @@ class ProductCategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'notice',
+                'Product edited successfully!'
+            );
+
             return $this->redirectToRoute('product_category_index', [
                 'id' => $productCategory->getId(),
             ]);
@@ -87,14 +96,25 @@ class ProductCategoryController extends AbstractController
     {
         if ($productCategory->hasProduct())
         {
-            echo "komentarz";
+            $this->addFlash(
+                'error',
+                'Category cannot be deleted - Category has assigned products'
+        );
+            return $this->redirectToRoute('product_category_show', ['id'=>$productCategory->getId()]);
         }
 
-        if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token')))
+
+        {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($productCategory);
             $entityManager->flush();
+            $this->addFlash(
+                'notice',
+                'Category has been deleted!'
+            );
         }
+
 
         return $this->redirectToRoute('product_category_index');
     }
