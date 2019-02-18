@@ -39,6 +39,10 @@ class ProductCategoryController extends AbstractController
             $entityManager->persist($productCategory);
             $entityManager->flush();
 
+            $this->addFlash(
+                'notice',
+                        'Your changes were saved!'
+            );
             return $this->redirectToRoute('product_category_index');
         }
 
@@ -69,6 +73,11 @@ class ProductCategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'notice',
+                'Product edited successfully!'
+            );
+
             return $this->redirectToRoute('product_category_index', [
                 'id' => $productCategory->getId(),
             ]);
@@ -87,7 +96,10 @@ class ProductCategoryController extends AbstractController
     {
         if ($productCategory->hasProduct())
         {
-            echo "komentarz";
+            $this->addFlash(
+                'notice',
+                'Product deleted!'
+            );
         }
 
         if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token'))) {

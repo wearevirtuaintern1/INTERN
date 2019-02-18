@@ -39,6 +39,10 @@ class ProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
+            $this->addFlash(
+                'notice',
+                'Product has been created!'
+            );
             return $this->redirectToRoute('product_index');
         }
 
@@ -53,6 +57,11 @@ class ProductController extends AbstractController
      */
     public function show(Product $product): Response
     {
+        $this->addFlash(
+            'notice',
+            'This is your product!'
+        );
+
         return $this->render('product/show.html.twig', [
             'product' => $product,
         ]);
@@ -68,6 +77,11 @@ class ProductController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash(
+                'notice',
+                'Product editted successfully!'
+            );
 
             return $this->redirectToRoute('product_index', [
                 'id' => $product->getId(),
@@ -91,6 +105,11 @@ class ProductController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash(
+            'notice',
+            'Deleted successfully!'
+        );
+        
         return $this->redirectToRoute('product_index');
     }
 }
