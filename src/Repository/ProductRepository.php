@@ -19,6 +19,7 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+<<<<<<< HEAD
     /*
 public function findByExampleField($value)
 {
@@ -46,3 +47,6 @@ public function findByExampleField($value)
     */
 
 }
+=======
+
+>>>>>>> 0fcc637af2e48fa30ee12179e0df934cf91204ba
