@@ -85,6 +85,11 @@ class ProductCategoryController extends AbstractController
      */
     public function delete(Request $request, ProductCategory $productCategory): Response
     {
+        if ($productCategory->hasProduct())
+        {
+            echo "komentarz";
+        }
+
         if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($productCategory);
@@ -93,4 +98,10 @@ class ProductCategoryController extends AbstractController
 
         return $this->redirectToRoute('product_category_index');
     }
+
+
+
+
+
+
 }
