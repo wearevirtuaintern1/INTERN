@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ProductCategory;
 use App\Form\ProductCategoryType;
 use App\Repository\ProductCategoryRepository;
+use function Sodium\add;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -97,16 +98,24 @@ class ProductCategoryController extends AbstractController
         if ($productCategory->hasProduct())
         {
             $this->addFlash(
-                'notice',
-                'Product deleted!'
-            );
+                'error',
+                'Category cannot be deleted - Category has assigned products'
+        );
+            return $this->redirectToRoute('product_category_show', ['id'=>$productCategory->getId()]);
         }
 
-        if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$productCategory->getId(), $request->request->get('_token')))
+
+        {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($productCategory);
             $entityManager->flush();
+            $this->addFlash(
+                'notice',
+                'Category has been deleted!'
+            );
         }
+
 
         return $this->redirectToRoute('product_category_index');
     }
