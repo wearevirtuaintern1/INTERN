@@ -1,0 +1,15 @@
+<a href="{{ path('app_welcome') }}">
+   <ul> Main Page </ul>
+</a>
+
+<a href="{{ path('product_category_index') }}">
+    <ul> Category </ul>
+</a>
+
+{% for category in product_categories %}
+    <a href="{{ path('product_category_show', {id: category.id}) }}">
+
+        <ul> <ul> <li>  {{ category.name }} </li> </ul> </ul>
+
+    </a>
+{% endfor %}
