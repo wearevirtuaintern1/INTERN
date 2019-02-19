@@ -5,26 +5,26 @@
 {% block body %}
     <h1>ProductCategory</h1>
 
-    <table class="table">
+    <table class="table table-hover">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th scope="col">Id</th>
                 <td>{{ product_category.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th scope="col">Name</th>
                 <td>{{ product_category.name }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th scope="col">Description</th>
                 <td>{{ product_category.description }}</td>
             </tr>
             <tr>
-                <th>Date_of_creation</th>
+                <th scope="col">Date_of_creation</th>
                 <td>{{ product_category.dateOfCreation|date("m/d/Y") }}</td>
             </tr>
             <tr>
-                <th>Date_of_last_modification</th>
+                <th scope="col">Date_of_last_modification</th>
                 <td>{{ product_category.dateOfLastModification|date("m/d/Y") }}</td>
             </tr>
         </tbody>
