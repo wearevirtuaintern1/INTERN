@@ -15,9 +15,13 @@
 
     </head>
     <body>
+    <div id="sidebar">
+        {{ render(controller('App\\Controller\\MenuController::menuAction')) }}
+    </div>
     <div class="container">
     {%  for label, messages in app.flashes %}
     {%  for message in messages %}
+
     <div class = "flash-{{ label }}">
         {{ message }}
     </div>
@@ -26,6 +30,8 @@
 
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+
 
     </div>
     </body>
