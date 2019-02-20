@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -28,11 +29,13 @@ class Product
 
     /**
      * @ORM\Column(type="datetime", length=255)
+     * @Gedmo\Timestampable(on="create")
      */
     private $date_of_creation;
 
     /**
      * @ORM\Column(type="datetime", length=255)
+     * @Gedmo\Timestampable(on="update")
      */
     private $date_of_last_modification;
 
