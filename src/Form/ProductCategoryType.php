@@ -14,8 +14,6 @@ class ProductCategoryType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('date_of_creation')
-            ->add('date_of_last_modification')
         ;
     }
 
