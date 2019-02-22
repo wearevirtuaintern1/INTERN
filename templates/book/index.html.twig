@@ -1,0 +1,51 @@
+{% extends 'library.html.twig' %}
+
+{% block title %}Book index{% endblock %}
+
+{% block body %}
+    <h1>Book index</h1>
+
+    <table class=""table table-striped table-dark"">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col"> Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Author</th>
+                <th scope="col">Genre</th>
+                <th scope="col">DateOfPublishment</th>
+                <th scope="col"> CountryOfPublishment</th>
+                <th scope="col">Date_of_creation</th>
+                <th scope="col">Date_of_last_modification</th>
+                <th scope="col">Availability</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.genre }}</td>
+                <td>{{ book.dateOfPublishment ? book.dateOfPublishment|date('Y-m-d') : '' }}</td>
+                <td>{{ book.countryOfPublishment }}</td>
+                <td>{{ product.dateOfCreation|date("m/d/Y") }}</td>
+                <td>{{ product.dateOfLastModification|date("m/d/Y") }}</td>
+                <td>{{ book.availability }}</td>
+                <td>
+                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
+                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('book_new') }}">Create new</a>
+{% endblock %}

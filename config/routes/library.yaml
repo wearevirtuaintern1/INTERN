@@ -1,0 +1,5 @@
+
+
+app_welcome:
+  path: /library
+  controller: App\Controller\LibraryController::libraryAction
